@@ -30,7 +30,7 @@ def adc():
         tmp_value = total_value + pow2
         signal = dec2bin(tmp_value)
         GPIO.output(dac, signal)
-        time.sleep(0.005)
+        time.sleep(0.01)
         compValue = GPIO.input(comp)
         if compValue == 0:
             total_value = total_value + pow2
@@ -47,7 +47,7 @@ try:
     while(currency < 205):
         currency = adc()
         time_list.append(time.time() - time_start)
-        time.sleep(0)
+        #time.sleep(0)
         count += 1
         GPIO.output(leds, dec2bin(currency))
         voltage = currency / levels * maxVoltage
@@ -63,7 +63,7 @@ try:
     while(currency > 192):
         currency = adc()
         time_list.append(time.time() - time_start)
-        time.sleep(0)
+        #time.sleep(0)
         count += 1
         GPIO.output(leds, dec2bin(currency))
         voltage = currency / levels * maxVoltage
@@ -104,8 +104,8 @@ with open('data.txt', 'w') as data:
     for i in result_measure:
         data.write(str(i) + '\n')
 with open('settings.txt', 'w') as settings:
-    settings.write(str(frequency_of_discretization) + '\n')
-    settings.write(str(quantization_step) + '\n')
+    settings.write('частота дискретизации(1/с): ' + str(frequency_of_discretization) + '\n')
+    settings.write('шаг квантования(В): ' + str(quantization_step) + '\n')
     
 x = time_list
 y = [i for i in result_measure]
