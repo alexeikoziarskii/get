@@ -1,0 +1,9 @@
+def adc():
+    bits = 0
+    for i in range(7, -1, -1):
+        bits += 2**i
+        GPIO.output(dac, dec2bin(bits))
+        time.sleep(0.005)
+        if GPIO.input(comp) == 0:
+            k -= 2**i
+    return bits

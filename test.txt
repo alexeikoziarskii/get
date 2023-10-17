@@ -1,0 +1,18 @@
+
+    #запись данных в файл
+    print('запись данных')
+    with open('data.txt', 'w') as data:
+        for i in result_measure:
+            data.write(str(i) + '\n')
+    with open('settings.txt', 'w') as settings:
+        settings.write(str(1/time_experiment/count) + '\n')
+        
+
+#построение графиков
+    print('построение графиков')
+    y = []
+    x = []
+    pyplot.plot(x, y)
+    pyplot.xlabel('t,(sec)')
+    pyplot.ylabel('U, volts')
+    pyplot.show() 
