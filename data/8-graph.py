@@ -27,11 +27,11 @@ ax.grid(which = 'minor', color = 'grey', linestyle = ':')
 ax.set_xlabel('t, seconds')
 ax.set_ylabel('U, volts')
 
-ax.plot(time, data, c = 'black', linewidth = 1, label = 'U(t)')
+ax.plot(time, data, c = 'black', linewidth = 1, label = 'U(t)', marker = '.', markersize = 10, markevery = 20)
 ax.legend(shadow = False, loc = 'upper right', fontsize = 10)
 plt.text(8, 1.7, 'время зарядки(с): ' + str(time[np.argmax(data)]))
 plt.text(8, 1.5, 'время разрядки(с): ' + str( np.max(time) - time[np.argmax(data)]))
-ax.scatter(time[0:data.size:20], data[0:data.size:20], marker = 'o', c = 'blue', s = 10)
+#ax.scatter(time[0:data.size:20], data[0:data.size:20], marker = 'o', c = 'blue', s = 10)
 
 fig.savefig('graph.png')
 fig.savefig('graph.svg')
